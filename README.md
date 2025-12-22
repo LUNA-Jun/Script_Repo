@@ -9,7 +9,7 @@ SCRIPT REPO
 
 
 ### Debian 계열
-
+[00. Zabbix_Install-Config_Auto](https://github.com/LUNA-Jun/Script_Repo/tree/74144521a8ff1612b4531e1dd6057455c100eb51/00.%20Zabbix_Install-Config_Auto/00.%20Ubuntu)
 <br/>
 <br/>
 
@@ -19,6 +19,7 @@ SCRIPT REPO
 ### bat
 
 <br/>
+
 
 
 
