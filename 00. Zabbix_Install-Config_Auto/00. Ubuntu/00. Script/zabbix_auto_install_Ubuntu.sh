@@ -58,6 +58,7 @@ fi
 ACCOUNT="zabbix"
 
 echo "[INFO] zabbix 계정 확인 중..." | tee -a "$LOG_FILE"
+
 if cat /etc/passwd | grep "$ACCOUNT" >/dev/null 2>&1; then
     echo "[OK] 계정 '$ACCOUNT'이 존재합니다." | tee -a "$LOG_FILE"
 else
@@ -79,7 +80,7 @@ if [ -f "$LIBFILE" ]; then
     cp -f "$LIBFILE" "$DEST_LIB"
 fi
 
-# LIFILE check
+# LIBFILE check
 if [ -f "$LIBFILE" ]; then
     cd "$LIBDIR"
 
