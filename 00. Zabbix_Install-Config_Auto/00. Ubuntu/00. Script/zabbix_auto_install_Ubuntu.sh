@@ -6,7 +6,7 @@ LOG_FILE="./zabbix_install.log"
 
 # root Check
 if [ "$EUID" -ne 0 ]; then
-    echo "이 스크립트는 root 권한(sudo)으로 실행해야합니다."
+    echo "이 스크립트는 root권한(sudo)으로 실행해야합니다."
     exit 1
 fi
 
@@ -40,7 +40,6 @@ if dpkg -i ${REPO_PATTERN} >>"$LOG_FILE" 2>&1; then
     echo "[OK] zabbix-release 설치 완료" | tee -a "$LOG_FILE"
 else
     echo "[ERR] zabbix-release 설치 실패" | tee -a "$LOG_FILE"
-    exit 1
 fi
 
 

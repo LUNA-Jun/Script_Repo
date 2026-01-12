@@ -15,7 +15,7 @@ usage() {
 
 # root Check
 if [ "$EUID" -ne 0 ]; then
-    echo "이 스크립트는 root 권한(sudo)으로 실행해야합니다."
+    echo "이 스크립트는 root권한(sudo)으로 실행해야합니다."
     exit 1
 fi
 
@@ -24,10 +24,12 @@ if [ "${1:-}" = "" ]; then
     usage
     exit 1
 fi
+
 SERVER_IP="$1"
 
-# 현재 서버 IP 자동 감지 (Hostname에 넣을 값)
+# Current Server IP Auto-Detections
 HOST_IP="$(ip -4 route get 1.1.1.1 2>/dev/null | awk '{print $7; exit}')"
+
 if [ -z "${HOST_IP}" ]; then
     echo "[ERR] 현재 서버 IP를 자동으로 가져오지 못했습니다."
     exit 1
@@ -38,8 +40,7 @@ echo "=== $(date '+%F %T') zabbix 설정 시작 ===" | tee -a "$LOG_FILE"
 echo "[INFO] Server/ServerActive = ${SERVER_IP}" | tee -a "$LOG_FILE"
 echo "[INFO] Hostname(현재 서버 IP) = ${HOST_IP}" | tee -a "$LOG_FILE"
 
-# Zabbix Install Check (설치 시도 안 함)
-# 참고: 'dpkg -s zabbix-*'는 와일드카드에 약해서 grep 방식이 더 안전함
+# Zabbix Install Check
 if ! dpkg -l | awk '{print $2}' | grep -q '^zabbix-agent$'; then
     echo "[ERR] zabbix-agent가 설치되어 있지 않습니다." | tee -a "$LOG_FILE"
     echo "먼저 아래 설치 스크립트를 실행하세요." | tee -a "$LOG_FILE"
