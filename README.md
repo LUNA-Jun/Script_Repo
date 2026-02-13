@@ -7,8 +7,9 @@
 
 ### RHEL 계열
 
-<br/>
 [00. Zabbix_Install-Config_Auto (Rocky Linux)](https://github.com/LUNA-Jun/Script_Repo/tree/main/00-Zabbix_Install-Config_Auto/01-Rocky)
+
+<br/>
 
 ### Debian 계열
 
@@ -23,4 +24,5 @@
 ### bat
 
 <br/>
+
 
