@@ -41,7 +41,7 @@ echo "[INFO] Server/ServerActive = ${SERVER_IP}" | tee -a "$LOG_FILE"
 echo "[INFO] Hostname(현재 서버 IP) = ${HOST_IP}" | tee -a "$LOG_FILE"
 
 # Zabbix Install Check
-if ! dpkg -l | awk '{print $2}' | grep -q '^zabbix-agent$'; then
+if ! rpm -q zabbix-agent >/dev/null 2>&1; then
     echo "[ERR] zabbix-agent가 설치되어 있지 않습니다." | tee -a "$LOG_FILE"
     echo "먼저 아래 설치 스크립트를 실행하세요." | tee -a "$LOG_FILE"
     echo "> ${SCRIPT_PATH}" | tee -a "$LOG_FILE"
